@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="atom.xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://btp-compliance-engineering.com/Thilaknath/bio/blog</id>
+    <id>https://thilaknath.github.io/bio/blog</id>
     <title>Thilaknath Ashok Kumar Blog</title>
     <updated>2024-09-26T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://btp-compliance-engineering.com/Thilaknath/bio/blog"/>
+    <link rel="alternate" href="https://thilaknath.github.io/bio/blog"/>
     <subtitle>Thilaknath Ashok Kumar Blog</subtitle>
-    <icon>https://btp-compliance-engineering.com/Thilaknath/bio/img/favicon.ico</icon>
+    <icon>https://thilaknath.github.io/bio/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[Welcome to My Personal Bio!]]></title>
-        <id>https://btp-compliance-engineering.com/Thilaknath/bio/blog/bio</id>
-        <link href="https://btp-compliance-engineering.com/Thilaknath/bio/blog/bio"/>
+        <id>https://thilaknath.github.io/bio/blog/bio</id>
+        <link href="https://thilaknath.github.io/bio/blog/bio"/>
         <updated>2024-09-26T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[After thinking about launching my personal website for quite some time, I’m excited to finally make it a reality! I had tried tools like Wix in the past, but they never quite stuck. Enter Docusaurus—a game changer. The simplicity of its bootstrap template and how easy it is to learn made the process not just straightforward but fun. Building this site has been a rewarding experience, and it feels great to have a platform where I can share more about who I am and what I do.]]></summary>
         <content type="html"><![CDATA[<p>After thinking about launching my personal website for quite some time, I’m excited to finally make it a reality! I had tried tools like Wix in the past, but they never quite stuck. Enter Docusaurus—a game changer. The simplicity of its bootstrap template and how easy it is to learn made the process not just straightforward but fun. Building this site has been a rewarding experience, and it feels great to have a platform where I can share more about who I am and what I do.</p>
@@ -27,8 +27,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Where to eat in Florence?]]></title>
-        <id>https://btp-compliance-engineering.com/Thilaknath/bio/blog/travel</id>
-        <link href="https://btp-compliance-engineering.com/Thilaknath/bio/blog/travel"/>
+        <id>https://thilaknath.github.io/bio/blog/travel</id>
+        <link href="https://thilaknath.github.io/bio/blog/travel"/>
         <updated>2018-12-17T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[I had this amazing opportunity with my company to stay in France for 4 months end of 2018. The year in general has been rough, But this opportunity at the year end gave me a great chance to travel around Italy as I was staying in south of France bordering Italy and it was in an hours reach. You hop in to TER sleep for a hour and before you realize you are in Italy travelling along the beautiful Cote’d’Azur. I had the opportunity to visit Milan, Florence, Piacenza, Rome and Pisa. It wouldn’t make justice me describing the landscape in words since I am no author, I will leave it for you to Google it.]]></summary>
         <content type="html"><![CDATA[<p>I had this amazing opportunity with my company to stay in France for 4 months end of 2018. The year in general has been rough, But this opportunity at the year end gave me a great chance to travel around Italy as I was staying in south of France bordering Italy and it was in an hours reach. You hop in to TER sleep for a hour and before you realize you are in Italy travelling along the beautiful Cote’d’Azur. I had the opportunity to visit Milan, Florence, Piacenza, Rome and Pisa. It wouldn’t make justice me describing the landscape in words since I am no author, I will leave it for you to Google it.</p>
@@ -46,8 +46,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[When your liver fails]]></title>
-        <id>https://btp-compliance-engineering.com/Thilaknath/bio/blog/health</id>
-        <link href="https://btp-compliance-engineering.com/Thilaknath/bio/blog/health"/>
+        <id>https://thilaknath.github.io/bio/blog/health</id>
+        <link href="https://thilaknath.github.io/bio/blog/health"/>
         <updated>2017-08-20T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[What happens when you were told that you have a terminal disease in your liver and you are counting your days. This happened just a few days back to my dad who was living a healthy life. Part of the reason why we din’t see this coming or even couldn’t imagine him being pushed in to this state is because you don’t see major symptoms. They just bham you right in your life and cause panic and utter confusion around all the loved ones.]]></summary>
         <content type="html"><![CDATA[<p>What happens when you were told that you have a terminal disease in your liver and you are counting your days. This happened just a few days back to my dad who was living a healthy life. Part of the reason why we din’t see this coming or even couldn’t imagine him being pushed in to this state is because you don’t see major symptoms. They just bham you right in your life and cause panic and utter confusion around all the loved ones.</p>
@@ -75,8 +75,8 @@ My dad always believed that a sound mind in a sound body and i too strongly beli
     </entry>
     <entry>
         <title type="html"><![CDATA[Graph Search]]></title>
-        <id>https://btp-compliance-engineering.com/Thilaknath/bio/blog/technology</id>
-        <link href="https://btp-compliance-engineering.com/Thilaknath/bio/blog/technology"/>
+        <id>https://thilaknath.github.io/bio/blog/technology</id>
+        <link href="https://thilaknath.github.io/bio/blog/technology"/>
         <updated>2013-01-16T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[So have you all been wondering whats this new play from facebook is all about, even i too have the same anxiety to know what it is all about?,  first of all why graph search?, when we have the giant google and many other toddlers out there. Lets get in to what made facebook launch a extensive social search engine and how does it function with our privacy in its hand.]]></summary>
         <content type="html"><![CDATA[<p>So have you all been wondering whats this new play from facebook is all about, even i too have the same anxiety to know what it is all about?,  first of all why graph search?, when we have the giant google and many other toddlers out there. Lets get in to what made facebook launch a extensive social search engine and how does it function with our privacy in its hand.</p>
@@ -94,8 +94,8 @@ My dad always believed that a sound mind in a sound body and i too strongly beli
     </entry>
     <entry>
         <title type="html"><![CDATA[Where are we headed to?]]></title>
-        <id>https://btp-compliance-engineering.com/Thilaknath/bio/blog/society</id>
-        <link href="https://btp-compliance-engineering.com/Thilaknath/bio/blog/society"/>
+        <id>https://thilaknath.github.io/bio/blog/society</id>
+        <link href="https://thilaknath.github.io/bio/blog/society"/>
         <updated>2013-01-05T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[I know everyone out there in the cyber space associated towards India must be aware of the news of the Brutal rape of medical student in the national capital. This had given enough substance for the Indian media to rave about for the coming months until a celebrity love breaks or the birth of a celebrity baby. Now i am making it clear, me writing this blog either makes no difference to the society or writing about the incident and feeling for the victim doesn’t cover up a bit to the grieved family. But i don’t have a place apart from this to share what i have in my mind and reading this if anyone in any corner of the world finds a change i would be the most happiest.]]></summary>
         <content type="html"><![CDATA[<p>I know everyone out there in the cyber space associated towards India must be aware of the news of the Brutal rape of medical student in the national capital. This had given enough substance for the Indian media to rave about for the coming months until a celebrity love breaks or the birth of a celebrity baby. Now i am making it clear, me writing this blog either makes no difference to the society or writing about the incident and feeling for the victim doesn’t cover up a bit to the grieved family. But i don’t have a place apart from this to share what i have in my mind and reading this if anyone in any corner of the world finds a change i would be the most happiest.</p>
@@ -112,8 +112,8 @@ From my perspective good education is the one, which could bring about a change 
     </entry>
     <entry>
         <title type="html"><![CDATA[Memory Forensics!]]></title>
-        <id>https://btp-compliance-engineering.com/Thilaknath/bio/blog/cryptography</id>
-        <link href="https://btp-compliance-engineering.com/Thilaknath/bio/blog/cryptography"/>
+        <id>https://thilaknath.github.io/bio/blog/cryptography</id>
+        <link href="https://thilaknath.github.io/bio/blog/cryptography"/>
         <updated>2012-12-20T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Have you ever wondered what would happen, when you are a forensic and in a position where u could not retrieve data from the culprits system since its encrypted using whole disk encryption software, then what’s your stand. This was eventually set in our mind when we started working on the project for recovering cryptography keys and we had particularly targeted only Truecrypt as we didn’t have much time to work on.]]></summary>
         <content type="html"><![CDATA[<p>Have you ever wondered what would happen, when you are a forensic and in a position where u could not retrieve data from the culprits system since its encrypted using whole disk encryption software, then what’s your stand. This was eventually set in our mind when we started working on the project for recovering cryptography keys and we had particularly targeted only Truecrypt as we didn’t have much time to work on.</p>
