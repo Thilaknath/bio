@@ -1,5 +1,5 @@
 ---
-slug: bio
+slug: llmSecurityReview
 title: The Future of Application Security - Integrating LLMs into AppSec
 authors:
   - name: Thilaknath Ashok Kumar
@@ -97,7 +97,9 @@ Here's a breakdown of how AI agents could streamline a security review process, 
   </div>
 </div>
 
-<img src="../static/blog/ai-agents.png" alt="AI Agents in Security Review" width="600" />
+<div className="margin-vert--xl">
+  <img src="ai-agents.png" alt="AI Agents in Security Review" width="600" />
+</div>
 
 *Image source: abacus.ai*
 
