@@ -98,7 +98,11 @@ Here's a breakdown of how AI agents could streamline a security review process, 
 </div>
 
 <div className="margin-vert--xl">
+<<<<<<< HEAD:blog/2024-11-12-security-review-using-llms.md
   <img src="ai-agents-llm.png" alt="AI Agents in Security Review" width="600" />
+=======
+  <img src="ai-agents.png" alt="AI Agents in Security Review" width="600" />
+>>>>>>> origin/main:blog/llmsecurity/2024-11-12-security-review-using-llms.md
 </div>
 
 *Image source: abacus.ai*
