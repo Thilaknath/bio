@@ -9,14 +9,14 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Thilaknath Ashok Kumar',
-  tagline: "Hey, I'm Thilak– a Compliance Engineering Specialist guiding teams toward seamless regulatory success with DevOps ingenuity.",
+  tagline: "Hey, I'm Thilak – a Compliance Engineering Specialist guiding teams toward seamless regulatory success with DevOps ingenuity.",
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://btp-compliance-engineering.com',
+  url: 'https://thilaknath.github.io/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/Thilaknath/bio/',
+  baseUrl: '/bio/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
