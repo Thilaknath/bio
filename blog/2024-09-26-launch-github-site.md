@@ -2,7 +2,7 @@
 slug: bio
 title: Welcome to My Personal Bio!
 authors:
-  - name: Thilaknath Ashok Kumar
+  - name: thilaknath
     title: Myself
     url: https://github.com/Thilaknath
     image_url: https://github.com/Thilaknath.png

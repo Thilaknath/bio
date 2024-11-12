@@ -2,7 +2,7 @@
 slug: travel
 title: Where to eat in Florence?
 authors:
-  - name: Thilaknath Ashok Kumar
+  - name: thilaknath
     title: Traveller
     url: https://github.com/Thilaknath
     image_url: https://github.com/Thilaknath.png

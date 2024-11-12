@@ -2,7 +2,7 @@
 slug: llmSecurityReview
 title: The Future of Application Security - Integrating LLMs into AppSec
 authors:
-  - name: Thilaknath Ashok Kumar
+  - name: thilaknath
     title: Product Security Specialist @ SAP
     url: https://github.com/Thilaknath
     image_url: https://github.com/Thilaknath.png
@@ -97,21 +97,12 @@ Here's a breakdown of how AI agents could streamline a security review process, 
   </div>
 </div>
 
-<div className="margin-vert--xl">
-<<<<<<< HEAD:blog/2024-11-12-security-review-using-llms.md
-  <img src="ai-agents-llm.png" alt="AI Agents in Security Review" width="600" />
-=======
-  <img src="ai-agents.png" alt="AI Agents in Security Review" width="600" />
->>>>>>> origin/main:blog/llmsecurity/2024-11-12-security-review-using-llms.md
-</div>
-
-*Image source: abacus.ai*
 
 ## Implementing AI Agents in AppSec: Key Benefits
 
 | Benefit | Description |
 |---------|-------------|
-| Scalability | Automate repetitive and low-risk assessments |
+| Scalability | Automate repetitive and low-risk assessment tasks |
 | Consistency | Reduce variability in risk assessments |
 | Proactivity | Monitor code changes and identify vulnerabilities early |
 | Resource Optimization | Maximize impact of existing security engineers |

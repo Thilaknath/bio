@@ -2,7 +2,7 @@
 slug: health
 title: When your liver fails
 authors:
-  - name: Thilaknath Ashok Kumar
+  - name: thilaknath
     title: Son
     url: https://github.com/Thilaknath
     image_url: https://github.com/Thilaknath.png

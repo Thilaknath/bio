@@ -2,7 +2,7 @@
 slug: technology
 title: Graph Search
 authors:
-  - name: Thilaknath Ashok Kumar
+  - name: thilaknath
     title: Student @ Concordia University
     url: https://github.com/Thilaknath
     image_url: https://github.com/Thilaknath.png
