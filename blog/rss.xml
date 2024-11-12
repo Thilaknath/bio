@@ -4,19 +4,162 @@
         <title>Thilaknath Ashok Kumar Blog</title>
         <link>https://thilaknath.github.io/bio/blog</link>
         <description>Thilaknath Ashok Kumar Blog</description>
-        <lastBuildDate>Thu, 26 Sep 2024 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 12 Nov 2024 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[The Future of Application Security - Integrating LLMs into AppSec]]></title>
+            <link>https://thilaknath.github.io/bio/blog/bio</link>
+            <guid>https://thilaknath.github.io/bio/blog/bio</guid>
+            <pubDate>Tue, 12 Nov 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[AI and Large Language Models (LLMs) are revolutionizing Application Security by automating routine tasks, enabling AppSec teams to scale their efforts without additional personnel.]]></description>
+            <content:encoded><![CDATA[<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>Key Takeaway</div><div class="admonitionContent_BuS1"><p>AI and Large Language Models (LLMs) are revolutionizing Application Security by automating routine tasks, enabling AppSec teams to scale their efforts without additional personnel.</p></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-challenge-traditional-appsec-limitations">The Challenge: Traditional AppSec Limitations<a href="https://thilaknath.github.io/bio/blog/bio#the-challenge-traditional-appsec-limitations" class="hash-link" aria-label="Direct link to The Challenge: Traditional AppSec Limitations" title="Direct link to The Challenge: Traditional AppSec Limitations">​</a></h2>
+<p>In today's fast-evolving software landscape, Application Security (AppSec) teams face mounting pressures:</p>
+<ul>
+<li>Limited resources and budget constraints</li>
+<li>Increasing need for proactive security</li>
+<li>Manual processes that can't scale</li>
+<li>Time-consuming security assessments</li>
+</ul>
+<p>However, advancements in Artificial Intelligence (AI) and Large Language Models (LLMs) provide a promising solution.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="the-traditional-appsec-challenge">The Traditional AppSec Challenge<a href="https://thilaknath.github.io/bio/blog/bio#the-traditional-appsec-challenge" class="hash-link" aria-label="Direct link to The Traditional AppSec Challenge" title="Direct link to The Traditional AppSec Challenge">​</a></h3>
+<p>Historically, AppSec teams engage with development teams to identify and remediate vulnerabilities early in the Software Development Lifecycle (SDLC). While these efforts are critical, they're typically manual and time-consuming. Tasks like risk classification, threat modeling, code reviews, and security assessments depend on human expertise and are subject to individual variability.</p>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>As organizations scale, it becomes impractical to expect AppSec teams to manually assess every component, and this is where AI offers a solution.</p></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-opportunity-with-generative-ai-and-llms">The Opportunity with Generative AI and LLMs<a href="https://thilaknath.github.io/bio/blog/bio#the-opportunity-with-generative-ai-and-llms" class="hash-link" aria-label="Direct link to The Opportunity with Generative AI and LLMs" title="Direct link to The Opportunity with Generative AI and LLMs">​</a></h2>
+<p>LLMs like OpenAI's models are reshaping the way we approach software development, providing capabilities to automate repetitive, labor-intensive tasks. By understanding and generating human-like text, these models can simplify complex security tasks, making AppSec more efficient.</p>
+<blockquote>
+<p>Imagine a scenario where LLMs could automate routine security reviews and handle tasks that were previously too minor to warrant manual oversight, thereby expanding the coverage of an AppSec team without additional personnel.</p>
+</blockquote>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="introducing-ai-based-security-oracles">Introducing AI-based "Security Oracles"<a href="https://thilaknath.github.io/bio/blog/bio#introducing-ai-based-security-oracles" class="hash-link" aria-label="Direct link to Introducing AI-based &quot;Security Oracles&quot;" title="Direct link to Introducing AI-based &quot;Security Oracles&quot;">​</a></h3>
+<p>Using frameworks like <strong>Retrieval-Augmented Generation (RAG)</strong>, organizations can implement AI-based "Security Oracles." These AI agents can:</p>
+<ul>
+<li>Query best practices</li>
+<li>Access security policies</li>
+<li>Analyze organizational data</li>
+<li>Provide contextual security insights</li>
+</ul>
+<p>For example, SecurityGPT could answer questions, generate tailored recommendations, and produce security documentation by leveraging an organization's existing resources.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="high-level-workflow-ai-enhanced-appsec-activities">High-Level Workflow: AI-Enhanced AppSec Activities<a href="https://thilaknath.github.io/bio/blog/bio#high-level-workflow-ai-enhanced-appsec-activities" class="hash-link" aria-label="Direct link to High-Level Workflow: AI-Enhanced AppSec Activities" title="Direct link to High-Level Workflow: AI-Enhanced AppSec Activities">​</a></h2>
+<p>Here's a breakdown of how AI agents could streamline a security review process, using the Security Review Process Funnel as a model:</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="1-risk-classification">1. Risk Classification<a href="https://thilaknath.github.io/bio/blog/bio#1-risk-classification" class="hash-link" aria-label="Direct link to 1. Risk Classification" title="Direct link to 1. Risk Classification">​</a></h3>
+<ul>
+<li>AI-powered risk scoring based on technical specifications</li>
+<li>Alignment with organization's framework</li>
+<li>Automation of lower-risk assessments</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="2-rapid-risk-assessment">2. Rapid Risk Assessment<a href="https://thilaknath.github.io/bio/blog/bio#2-rapid-risk-assessment" class="hash-link" aria-label="Direct link to 2. Rapid Risk Assessment" title="Direct link to 2. Rapid Risk Assessment">​</a></h3>
+<ul>
+<li>Integration with Mozilla's RRA guide</li>
+<li>Automated impact analysis</li>
+<li>Instant report generation</li>
+<li>Standardized evaluations</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="3-security-review-types">3. Security Review Types<a href="https://thilaknath.github.io/bio/blog/bio#3-security-review-types" class="hash-link" aria-label="Direct link to 3. Security Review Types" title="Direct link to 3. Security Review Types">​</a></h3>
+<div class="row"><div class="col col--6"><div class="card"><div class="card__header"><h3>Standard Review</h3></div><div class="card__body"><p>LLMs provide general recommendations on:</p><ul>
+<li>Authentication</li>
+<li>Authorization</li>
+<li>Encryption</li>
+<li>Input Validation</li>
+</ul></div></div></div><div class="col col--6"><div class="card"><div class="card__header"><h3>Custom AI-Powered Review</h3></div><div class="card__body"><p>Using RAG for:</p><ul>
+<li>Deep analysis</li>
+<li>Customized recommendations</li>
+<li>Expert-level insights</li>
+</ul></div></div></div></div>
+<img src="https://thilaknath.github.io/bio/static/blog/ai-agents.png" alt="AI Agents in Security Review" width="600">
+<p><em>Image source: abacus.ai</em></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="implementing-ai-agents-in-appsec-key-benefits">Implementing AI Agents in AppSec: Key Benefits<a href="https://thilaknath.github.io/bio/blog/bio#implementing-ai-agents-in-appsec-key-benefits" class="hash-link" aria-label="Direct link to Implementing AI Agents in AppSec: Key Benefits" title="Direct link to Implementing AI Agents in AppSec: Key Benefits">​</a></h2>
+<table><thead><tr><th>Benefit</th><th>Description</th></tr></thead><tbody><tr><td>Scalability</td><td>Automate repetitive and low-risk assessments</td></tr><tr><td>Consistency</td><td>Reduce variability in risk assessments</td></tr><tr><td>Proactivity</td><td>Monitor code changes and identify vulnerabilities early</td></tr><tr><td>Resource Optimization</td><td>Maximize impact of existing security engineers</td></tr></tbody></table>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="envisioning-the-future-of-appsec">Envisioning the Future of AppSec<a href="https://thilaknath.github.io/bio/blog/bio#envisioning-the-future-of-appsec" class="hash-link" aria-label="Direct link to Envisioning the Future of AppSec" title="Direct link to Envisioning the Future of AppSec">​</a></h2>
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>Future Perspective</div><div class="admonitionContent_BuS1"><p>As LLM technology continues to advance, we may see AppSec workflows where AI and human expertise work seamlessly together. Security teams can focus on higher-order analysis while AI handles the foundational tasks, creating a proactive, resilient approach to security.</p></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="conclusion">Conclusion<a href="https://thilaknath.github.io/bio/blog/bio#conclusion" class="hash-link" aria-label="Direct link to Conclusion" title="Direct link to Conclusion">​</a></h2>
+<p>Integrating AI into AppSec marks a revolutionary shift in security practices, enabling organizations to scale their security efforts without adding personnel. While manual oversight remains crucial, the combination of human expertise and AI-driven automation offers a future where AppSec is:</p>
+<ul>
+<li>✅ Faster</li>
+<li>✅ More consistent</li>
+<li>✅ Ultimately more effective</li>
+</ul>
+<div class="theme-admonition theme-admonition-caution admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>Remember</div><div class="admonitionContent_BuS1"><p>The goal is not to replace human expertise but to augment it with AI capabilities for better security outcomes.</p></div></div>]]></content:encoded>
+            <category>cyber-security</category>
+            <category>llms</category>
+            <category>security</category>
+            <category>gpt-4</category>
+            <category>openAI</category>
+        </item>
         <item>
             <title><![CDATA[Welcome to My Personal Bio!]]></title>
             <link>https://thilaknath.github.io/bio/blog/bio</link>
             <guid>https://thilaknath.github.io/bio/blog/bio</guid>
             <pubDate>Thu, 26 Sep 2024 00:00:00 GMT</pubDate>
             <description><![CDATA[After thinking about launching my personal website for quite some time, I’m excited to finally make it a reality! I had tried tools like Wix in the past, but they never quite stuck. Enter Docusaurus—a game changer. The simplicity of its bootstrap template and how easy it is to learn made the process not just straightforward but fun. Building this site has been a rewarding experience, and it feels great to have a platform where I can share more about who I am and what I do.]]></description>
-            <content:encoded><![CDATA[<p>After thinking about launching my personal website for quite some time, I’m excited to finally make it a reality! I had tried tools like Wix in the past, but they never quite stuck. Enter Docusaurus—a game changer. The simplicity of its bootstrap template and how easy it is to learn made the process not just straightforward but fun. Building this site has been a rewarding experience, and it feels great to have a platform where I can share more about who I am and what I do.</p>
-<p>This site will be a blend of everything that interests me. From my work in tech, to my adventures in travel, to my love of good food, I’ll be regularly updating the blog section with posts on all these topics. So, whether you’re here to learn more about my professional journey or to see what I’ve been up to outside of work, there will be something for everyone.</p>
-<p>I’m looking forward to sharing my thoughts and experiences with you. Stay tuned for more updates!</p>]]></content:encoded>
+            <content:encoded><![CDATA[<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>Key Takeaway</div><div class="admonitionContent_BuS1"><p>AI and Large Language Models (LLMs) are revolutionizing Application Security by automating routine tasks, enabling AppSec teams to scale their efforts without additional personnel.</p></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-challenge-traditional-appsec-limitations">The Challenge: Traditional AppSec Limitations<a href="https://thilaknath.github.io/bio/blog/bio#the-challenge-traditional-appsec-limitations" class="hash-link" aria-label="Direct link to The Challenge: Traditional AppSec Limitations" title="Direct link to The Challenge: Traditional AppSec Limitations">​</a></h2>
+<p>In today's fast-evolving software landscape, Application Security (AppSec) teams face mounting pressures:</p>
+<ul>
+<li>Limited resources and budget constraints</li>
+<li>Increasing need for proactive security</li>
+<li>Manual processes that can't scale</li>
+<li>Time-consuming security assessments</li>
+</ul>
+<p>However, advancements in Artificial Intelligence (AI) and Large Language Models (LLMs) provide a promising solution.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="the-traditional-appsec-challenge">The Traditional AppSec Challenge<a href="https://thilaknath.github.io/bio/blog/bio#the-traditional-appsec-challenge" class="hash-link" aria-label="Direct link to The Traditional AppSec Challenge" title="Direct link to The Traditional AppSec Challenge">​</a></h3>
+<p>Historically, AppSec teams engage with development teams to identify and remediate vulnerabilities early in the Software Development Lifecycle (SDLC). While these efforts are critical, they're typically manual and time-consuming. Tasks like risk classification, threat modeling, code reviews, and security assessments depend on human expertise and are subject to individual variability.</p>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>As organizations scale, it becomes impractical to expect AppSec teams to manually assess every component, and this is where AI offers a solution.</p></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-opportunity-with-generative-ai-and-llms">The Opportunity with Generative AI and LLMs<a href="https://thilaknath.github.io/bio/blog/bio#the-opportunity-with-generative-ai-and-llms" class="hash-link" aria-label="Direct link to The Opportunity with Generative AI and LLMs" title="Direct link to The Opportunity with Generative AI and LLMs">​</a></h2>
+<p>LLMs like OpenAI's models are reshaping the way we approach software development, providing capabilities to automate repetitive, labor-intensive tasks. By understanding and generating human-like text, these models can simplify complex security tasks, making AppSec more efficient.</p>
+<blockquote>
+<p>Imagine a scenario where LLMs could automate routine security reviews and handle tasks that were previously too minor to warrant manual oversight, thereby expanding the coverage of an AppSec team without additional personnel.</p>
+</blockquote>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="introducing-ai-based-security-oracles">Introducing AI-based "Security Oracles"<a href="https://thilaknath.github.io/bio/blog/bio#introducing-ai-based-security-oracles" class="hash-link" aria-label="Direct link to Introducing AI-based &quot;Security Oracles&quot;" title="Direct link to Introducing AI-based &quot;Security Oracles&quot;">​</a></h3>
+<p>Using frameworks like <strong>Retrieval-Augmented Generation (RAG)</strong>, organizations can implement AI-based "Security Oracles." These AI agents can:</p>
+<ul>
+<li>Query best practices</li>
+<li>Access security policies</li>
+<li>Analyze organizational data</li>
+<li>Provide contextual security insights</li>
+</ul>
+<p>For example, SecurityGPT could answer questions, generate tailored recommendations, and produce security documentation by leveraging an organization's existing resources.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="high-level-workflow-ai-enhanced-appsec-activities">High-Level Workflow: AI-Enhanced AppSec Activities<a href="https://thilaknath.github.io/bio/blog/bio#high-level-workflow-ai-enhanced-appsec-activities" class="hash-link" aria-label="Direct link to High-Level Workflow: AI-Enhanced AppSec Activities" title="Direct link to High-Level Workflow: AI-Enhanced AppSec Activities">​</a></h2>
+<p>Here's a breakdown of how AI agents could streamline a security review process, using the Security Review Process Funnel as a model:</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="1-risk-classification">1. Risk Classification<a href="https://thilaknath.github.io/bio/blog/bio#1-risk-classification" class="hash-link" aria-label="Direct link to 1. Risk Classification" title="Direct link to 1. Risk Classification">​</a></h3>
+<ul>
+<li>AI-powered risk scoring based on technical specifications</li>
+<li>Alignment with organization's framework</li>
+<li>Automation of lower-risk assessments</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="2-rapid-risk-assessment">2. Rapid Risk Assessment<a href="https://thilaknath.github.io/bio/blog/bio#2-rapid-risk-assessment" class="hash-link" aria-label="Direct link to 2. Rapid Risk Assessment" title="Direct link to 2. Rapid Risk Assessment">​</a></h3>
+<ul>
+<li>Integration with Mozilla's RRA guide</li>
+<li>Automated impact analysis</li>
+<li>Instant report generation</li>
+<li>Standardized evaluations</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="3-security-review-types">3. Security Review Types<a href="https://thilaknath.github.io/bio/blog/bio#3-security-review-types" class="hash-link" aria-label="Direct link to 3. Security Review Types" title="Direct link to 3. Security Review Types">​</a></h3>
+<div class="row"><div class="col col--6"><div class="card"><div class="card__header"><h3>Standard Review</h3></div><div class="card__body"><p>LLMs provide general recommendations on:</p><ul>
+<li>Authentication</li>
+<li>Authorization</li>
+<li>Encryption</li>
+<li>Input Validation</li>
+</ul></div></div></div><div class="col col--6"><div class="card"><div class="card__header"><h3>Custom AI-Powered Review</h3></div><div class="card__body"><p>Using RAG for:</p><ul>
+<li>Deep analysis</li>
+<li>Customized recommendations</li>
+<li>Expert-level insights</li>
+</ul></div></div></div></div>
+<img src="https://thilaknath.github.io/bio/static/blog/ai-agents.png" alt="AI Agents in Security Review" width="600">
+<p><em>Image source: abacus.ai</em></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="implementing-ai-agents-in-appsec-key-benefits">Implementing AI Agents in AppSec: Key Benefits<a href="https://thilaknath.github.io/bio/blog/bio#implementing-ai-agents-in-appsec-key-benefits" class="hash-link" aria-label="Direct link to Implementing AI Agents in AppSec: Key Benefits" title="Direct link to Implementing AI Agents in AppSec: Key Benefits">​</a></h2>
+<table><thead><tr><th>Benefit</th><th>Description</th></tr></thead><tbody><tr><td>Scalability</td><td>Automate repetitive and low-risk assessments</td></tr><tr><td>Consistency</td><td>Reduce variability in risk assessments</td></tr><tr><td>Proactivity</td><td>Monitor code changes and identify vulnerabilities early</td></tr><tr><td>Resource Optimization</td><td>Maximize impact of existing security engineers</td></tr></tbody></table>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="envisioning-the-future-of-appsec">Envisioning the Future of AppSec<a href="https://thilaknath.github.io/bio/blog/bio#envisioning-the-future-of-appsec" class="hash-link" aria-label="Direct link to Envisioning the Future of AppSec" title="Direct link to Envisioning the Future of AppSec">​</a></h2>
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>Future Perspective</div><div class="admonitionContent_BuS1"><p>As LLM technology continues to advance, we may see AppSec workflows where AI and human expertise work seamlessly together. Security teams can focus on higher-order analysis while AI handles the foundational tasks, creating a proactive, resilient approach to security.</p></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="conclusion">Conclusion<a href="https://thilaknath.github.io/bio/blog/bio#conclusion" class="hash-link" aria-label="Direct link to Conclusion" title="Direct link to Conclusion">​</a></h2>
+<p>Integrating AI into AppSec marks a revolutionary shift in security practices, enabling organizations to scale their security efforts without adding personnel. While manual oversight remains crucial, the combination of human expertise and AI-driven automation offers a future where AppSec is:</p>
+<ul>
+<li>✅ Faster</li>
+<li>✅ More consistent</li>
+<li>✅ Ultimately more effective</li>
+</ul>
+<div class="theme-admonition theme-admonition-caution admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>Remember</div><div class="admonitionContent_BuS1"><p>The goal is not to replace human expertise but to augment it with AI capabilities for better security outcomes.</p></div></div>]]></content:encoded>
             <category>about</category>
             <category>life</category>
             <category>site</category>
