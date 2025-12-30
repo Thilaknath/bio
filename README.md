@@ -1,41 +1,67 @@
-# Website
+# Thilaknath Ashok Kumar - Personal Website
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+A minimalist, professional portfolio and blog built with pure HTML and CSS.
 
-### Installation
+## Design Philosophy
 
-```
-$ yarn
-```
+This site follows an "Academic Minimalist" aesthetic:
+- **Typography**: Monospace headers (Courier New) + Serif body (Georgia)
+- **Colors**: Warm white background (#fffff8), near-black text (#111111)
+- **Layout**: Single column, 750px max-width, brutally simple
+- **No JavaScript**: Pure HTML/CSS for maximum performance and accessibility
+- **File size**: ~10KB total page weight
 
-### Local Development
-
-```
-$ yarn start
-```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-### Build
+## Structure
 
 ```
-$ yarn build
+/
+├── index.html          # Home page
+├── about.html          # About page
+├── blog.html           # Blog listing
+├── style.css           # Global stylesheet
+└── blog/
+    ├── llm-security-review.html
+    ├── launch-github-site.html
+    ├── florence-food.html
+    ├── liver-health.html
+    ├── graph-search.html
+    ├── society.html
+    └── memory-forensics.html
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+## Local Development
 
-### Deployment
+Start a local server:
 
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
+```bash
+python3 -m http.server 8000
 ```
 
-Not using SSH:
+Then visit `http://localhost:8000` in your browser.
 
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
+## Deployment to GitHub Pages
+
+This site is deployed to `https://thilaknath.github.io/bio/`
+
+To deploy changes:
+
+```bash
+git add .
+git commit -m "Update site"
+git push origin main
 ```
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+GitHub Pages will automatically serve the site from the `main` branch.
+
+## Features
+
+- Blog with 7 posts spanning 2012-2024
+- Professional bio and experience
+- External links to GitHub, LinkedIn
+- Fully responsive design
+- SEO optimized with meta tags
+- Zero build step required
+
+## Legacy
+
+The previous version used Docusaurus. If you need to reference it, check the git history or the archived `docusaurus.config.js` file.
