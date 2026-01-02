@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Analysis of agentic AI security tools - separating promise from reality in automated vulnerability management">
+    <title>Agentic AI Security Tools - Promise vs. Reality</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <main>
+        <header>
+            <h1><a href="../index.html" style="text-decoration: none; color: inherit;">Thilaknath Ashok Kumar</a></h1>
+        </header>
+
+        <nav>
+            <a href="../index.html">Home</a> ·
+            <a href="../about.html">About</a> ·
+            <a href="../blog.html">Blog</a> ·
+            <a href="https://www.youtube.com/@chatGPTDevOps">YouTube</a> ·
+            <a href="https://github.com/Thilaknath">GitHub</a> ·
+            <a href="https://www.linkedin.com/in/thilaknath/">LinkedIn</a>
+        </nav>
+
+        <article>
+            <header>
+                <h2>Agentic AI Security Tools: Promise vs. Reality</h2>
+                <p class="meta">Published: January 2, 2026</p>
+                <div class="tags">
+                    <a href="#">ai</a>
+                    <a href="#">security</a>
+                    <a href="#">appsec</a>
+                    <a href="#">compliance</a>
+                    <a href="#">agents</a>
+                    <a href="#">automation</a>
+                </div>
+            </header>
+
+            <p>
+                The security industry loves buzzwords, and "agentic AI" is 2026's hottest entry. Every vendor is suddenly offering AI agents that promise to autonomously find vulnerabilities, triage alerts, and even remediate issues without human intervention. As someone who's spent the last year watching AI coding assistants transform development workflows, I'm both intrigued and deeply skeptical about these security tools.
+            </p>
+            <p>
+                Let me be clear upfront: I'm not dismissing the technology. I'm questioning whether we're deploying it thoughtfully or just slapping "AI" on traditional tooling to justify price increases.
+            </p>
+
+            <h3>What Are Agentic AI Security Tools?</h3>
+            <p>
+                Traditional security tools are reactive—you run a scan, get a report, and manually review findings. Agentic AI tools claim to go further by autonomously:
+            </p>
+            <ul>
+                <li><strong>Triaging vulnerabilities</strong> based on business context, not just CVSS scores</li>
+                <li><strong>Correlating findings</strong> across multiple tools (SAST, DAST, SCA, container scans)</li>
+                <li><strong>Suggesting fixes</strong> with code patches or configuration changes</li>
+                <li><strong>Validating exploitability</strong> by attempting proof-of-concept attacks in safe environments</li>
+                <li><strong>Learning your environment</strong> to reduce false positives over time</li>
+            </ul>
+            <p>
+                The pitch is compelling: let the AI handle the noise so security engineers can focus on strategic work. But the reality is more nuanced.
+            </p>
+
+            <h3>The Current Landscape</h3>
+            <p>Several players are pushing into this space:</p>
+
+            <p><strong>Azure Copilot for Security</strong> - Extends Copilot's code generation to security queries, threat analysis, and incident response. It's essentially ChatGPT with security context, not a true autonomous agent.</p>
+
+            <p><strong>Snyk DeepCode AI</strong> - Uses AI to detect vulnerabilities in real-time as you code. Good at identifying insecure patterns, less good at understanding business logic flaws.</p>
+
+            <p><strong>Aikido Security</strong> - Consolidates multiple security tools and uses AI to prioritize findings. This is closer to intelligent orchestration than true agency.</p>
+
+            <p><strong>Wiz AI</strong> - Focuses on cloud security posture management with AI-powered risk scoring. Strong on infrastructure, weak on application-layer issues.</p>
+
+            <p><strong>GitLab Duo Security</strong> - Integrated into GitLab's DevSecOps platform, offering vulnerability explanation and remediation suggestions.</p>
+
+            <p>
+                The pattern I see: most "agentic" security tools are actually <strong>intelligent assistants</strong>, not autonomous agents. They recommend, not execute. And frankly, that's probably the right call for now.
+            </p>
+
+            <h3>Where They Excel</h3>
+            <p>I'll give credit where it's due—these tools solve real problems:</p>
+
+            <h4>1. Alert Fatigue Reduction</h4>
+            <p>
+                Security teams are drowning in false positives. A tool that can automatically dismiss vulnerabilities in dead code or test files? That's valuable. I've seen teams cut their security backlog by 40% just by intelligently filtering noise.
+            </p>
+
+            <h4>2. Contextual Prioritization</h4>
+            <p>
+                CVSS scores are notoriously bad at reflecting actual risk. An AI that understands "this vulnerability is in a public-facing API that handles customer PII" versus "this is in an internal admin tool behind VPN and MFA" provides actionable prioritization.
+            </p>
+
+            <h4>3. Remediation Suggestions</h4>
+            <p>
+                Junior developers often know a vulnerability exists but not how to fix it securely. An AI suggesting a parameterized query instead of string concatenation, with a code example? That accelerates remediation significantly.
+            </p>
+
+            <h4>4. Cross-Tool Correlation</h4>
+            <p>
+                We run 5-10 security tools in a typical pipeline. Manually correlating findings across Snyk, SonarQube, Checkmarx, and OWASP Dependency-Check is tedious. AI can identify that three tools are all flagging the same underlying issue.
+            </p>
+
+            <h3>Where They Fall Short</h3>
+            <p>But here's where the hype doesn't match reality:</p>
+
+            <h4>1. No True Autonomy</h4>
+            <p>
+                Despite the "agentic" branding, I haven't seen a single tool that actually remediates vulnerabilities autonomously in production. They all require human approval. That's wise from a safety perspective, but it means the promised productivity gains are overstated.
+            </p>
+            <p>
+                You're not eliminating the security engineer—you're giving them better recommendations. That's useful, but it's not the revolution being marketed.
+            </p>
+
+            <h4>2. Limited Business Context</h4>
+            <p>
+                AI agents don't understand that "this SQL injection vulnerability is in a feature we're deprecating next quarter" or "this library is only used in our internal demo environment." They lack institutional knowledge.
+            </p>
+            <p>
+                A human reviewer knows the application's threat model, regulatory requirements, and business priorities. The AI doesn't, and can't without significant manual configuration.
+            </p>
+
+            <h4>3. Compliance Audit Challenges</h4>
+            <p>
+                Here's the part that keeps me up at night: how do you explain to an auditor that an AI agent approved a security fix?
+            </p>
+            <p>
+                For SOC 2, ISO 27001, or FDA validation, you need clear accountability. "The AI determined this was low risk" won't satisfy an auditor. You need documented decision logic, human oversight, and audit trails.
+            </p>
+            <p>
+                Most current tools don't provide the evidence trail compliance requires. They give you a recommendation and a confidence score, not a detailed rationale with supporting evidence.
+            </p>
+
+            <h4>4. Adversarial Brittleness</h4>
+            <p>
+                Security is adversarial. Attackers actively try to bypass defenses. LLMs, as we've seen with prompt injection attacks, are notoriously vulnerable to adversarial inputs.
+            </p>
+            <p>
+                What happens when an attacker realizes they can craft a malicious payload that the AI security agent misclassifies as safe? We're one clever jailbreak away from a systemic security failure.
+            </p>
+
+            <h3>The Compliance Angle</h3>
+            <p>From a GRC perspective, deploying agentic AI security tools introduces new requirements:</p>
+
+            <p><strong>Vendor Risk Assessment:</strong> How does the vendor train their model? Do they ingest your proprietary code? Where is data processed? Can you meet GDPR/CCPA requirements?</p>
+
+            <p><strong>Change Control:</strong> If an AI agent is automatically triaging or remediating issues, that's a change to your security control environment. You need approval workflows, not silent automation.</p>
+
+            <p><strong>Evidence Retention:</strong> For compliance audits, you need to prove security findings were addressed appropriately. AI-generated decisions need to be logged, traceable, and explainable.</p>
+
+            <p><strong>Separation of Duties:</strong> In regulated environments, you often need separation between who identifies a vulnerability and who remediates it. Pure AI automation breaks that control.</p>
+
+            <p>
+                The frameworks we rely on (NIST 800-53, ISO 27001, PCI DSS) assume human decision-making. We need updated guidance on acceptable use of AI in security controls.
+            </p>
+
+            <h3>My Take: Augmentation, Not Automation</h3>
+            <p>I'm cautiously optimistic about agentic AI security tools, but with caveats:</p>
+
+            <p><strong>Use them for triage, not remediation.</strong> Let the AI filter noise and prioritize findings. But keep humans in the loop for actual fixes, especially in production.</p>
+
+            <p><strong>Demand explainability.</strong> If a tool can't articulate why it made a decision, don't trust it for security-critical choices. "High confidence score" isn't sufficient justification.</p>
+
+            <p><strong>Integrate into existing workflows.</strong> Don't bypass your vulnerability management process. AI recommendations should flow through the same approval, testing, and review steps as human-generated fixes.</p>
+
+            <p><strong>Build audit trails proactively.</strong> Log every AI decision, the reasoning, and the human approval. You'll thank yourself when the auditors come knocking.</p>
+
+            <p><strong>Treat AI as junior analysts.</strong> These tools are like smart interns—they can do useful work under supervision, but they shouldn't be making critical decisions independently.</p>
+
+            <h3>What to Watch in 2026</h3>
+            <p>The technology will improve. What I'm watching for:</p>
+            <ol>
+                <li><strong>True autonomous remediation</strong> in non-production environments first (test, staging)</li>
+                <li><strong>Better business context integration</strong> via semantic understanding of documentation and architecture diagrams</li>
+                <li><strong>Compliance-native features</strong> - built-in audit logging, approval workflows, and evidence generation</li>
+                <li><strong>Adversarial testing results</strong> - can these tools withstand sophisticated evasion attempts?</li>
+                <li><strong>Standardization</strong> - will we get industry frameworks for evaluating AI security tool effectiveness?</li>
+            </ol>
+
+            <h3>Final Thoughts</h3>
+            <p>
+                Agentic AI security tools are not a silver bullet. They won't eliminate your security team, and they won't make vulnerabilities disappear. But they can make security engineers more effective by handling repetitive triage and providing intelligent recommendations.
+            </p>
+            <p>
+                The key is maintaining realistic expectations. We're in the "intelligent assistant" phase, not the "autonomous agent" phase. That's not a criticism—it's a recognition that security is too important to fully automate without the guardrails, explainability, and human oversight that enterprises require.
+            </p>
+            <p>
+                If your vendor is promising full automation with no human involvement, be skeptical. If they're promising to augment your team's capabilities while maintaining human accountability, that's a conversation worth having.
+            </p>
+
+            <hr style="margin: 2rem 0; border: none; border-top: 1px solid #e0e0e0;">
+
+            <p style="font-style: italic; margin-top: 2rem;">
+                <strong>What's your experience with AI security tools? Are you seeing real value, or mostly marketing hype?</strong> Reach out via <a href="https://www.linkedin.com/in/thilaknath/">LinkedIn</a> or comment below.
+            </p>
+        </article>
+
+        <footer>
+            <p><a href="../blog.html">← Back to all posts</a></p>
+            <p>© 2026 Thilaknath Ashok Kumar</p>
+        </footer>
+    </main>
+</body>
+</html>
