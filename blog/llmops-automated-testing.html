@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A comprehensive guide to building automated testing frameworks for LLM-powered applications - from rules-based evals to model-graded evaluations">
+    <title>LLMOps: Building Automated Testing Frameworks for LLM Applications</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <main>
+        <header>
+            <h1><a href="../index.html" style="text-decoration: none; color: inherit;">Thilaknath Ashok Kumar</a></h1>
+        </header>
+
+        <nav>
+            <a href="../index.html">Home</a> ·
+            <a href="../about.html">About</a> ·
+            <a href="../blog.html">Blog</a> ·
+            <a href="https://www.youtube.com/@chatGPTDevOps">YouTube</a> ·
+            <a href="https://github.com/Thilaknath">GitHub</a> ·
+            <a href="https://www.linkedin.com/in/thilaknath/">LinkedIn</a>
+        </nav>
+
+        <article>
+            <header>
+                <h2>LLMOps: Building Automated Testing Frameworks for LLM Applications</h2>
+                <p class="meta">
+                    Published: January 17, 2026 ·
+                    Author: Thilaknath Ashok Kumar & GitHub Copilot
+                </p>
+                <div class="tags">
+                    <a href="#">llmops</a>
+                    <a href="#">testing</a>
+                    <a href="#">evals</a>
+                    <a href="#">ci-cd</a>
+                    <a href="#">openai</a>
+                    <a href="#">langchain</a>
+                </div>
+            </header>
+
+            <div class="tip">
+                <strong>Key Takeaway:</strong> LLM applications require a fundamentally different testing approach than traditional software. By combining rules-based evals, model-graded evaluations, and automated CI/CD pipelines, you can build reliable, scalable testing frameworks that catch issues before they reach users.
+            </div>
+
+            <h3>Introduction: Why LLM Testing is Different</h3>
+            <p>Building high-quality software has always required robust testing practices. However, as we transition from traditional software to LLM-powered applications, our testing paradigms must evolve significantly.</p>
+
+            <p>In traditional software, inputs and outputs are deterministic, we know exactly what output to expect for any given input. LLM-based applications are fundamentally different:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Traditional Software</th>
+                        <th>LLM Applications</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Behavior</td>
+                        <td>Predefined, deterministic</td>
+                        <td>Probabilistic, variable outputs</td>
+                    </tr>
+                    <tr>
+                        <td>Outputs</td>
+                        <td>Single correct answer</td>
+                        <td>Multiple valid responses possible</td>
+                    </tr>
+                    <tr>
+                        <td>Evaluation</td>
+                        <td>Exact match validation</td>
+                        <td>Subjective, context-dependent</td>
+                    </tr>
+                    <tr>
+                        <td>Risks</td>
+                        <td>Logic errors, bugs</td>
+                        <td>Hallucinations, bias, toxicity</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <blockquote>
+                "If you prompt an LLM to answer 'Is Italy a good place for vacation?', you might get a detailed response about Rome, Florence, and Venice or just a simple 'Yes.' Both could be correct depending on your use case."
+            </blockquote>
+
+            <h3>The Four Pillars of LLM Evaluation</h3>
+            <p>When designing testing frameworks for LLM applications, focus on these four critical areas:</p>
+
+            <h4>1. Context Adherence (Groundedness)</h4>
+            <p>Does the LLM response align with the provided context or guidelines? This is crucial for applications where the model should only use information from a specific knowledge base.</p>
+
+            <h4>2. Context Relevance</h4>
+            <p>Is the retrieved context actually relevant to the original query? This matters especially in RAG (Retrieval-Augmented Generation) applications.</p>
+
+            <h4>3. Correctness & Accuracy</h4>
+            <p>Does the output align with expected results and ground truth? How close is the response to what we anticipate?</p>
+
+            <h4>4. Bias & Toxicity</h4>
+            <p>Does the output contain harmful content, favoritism, or offensive language? LLMs can produce responses that are toxic, biased, or inappropriate.</p>
+
+            <div class="warning">
+                <strong>Important:</strong> LLMs bring new challenges to testing that don't exist in traditional software hallucinations, subjective quality, and the potential for harmful outputs require specialized evaluation approaches.
+            </div>
+
+            <h3>Types of Evaluations</h3>
+
+            <h4>Rules-Based Evals</h4>
+            <p>Simple, deterministic checks that are fast and cheap to run. Ideal for the early, iterative stages of development.</p>
+
+            <p><strong>When to use:</strong></p>
+            <ul>
+                <li>Every commit during development</li>
+                <li>Quick feedback loops</li>
+                <li>Checking for expected keywords or format</li>
+                <li>Validating refusal behavior</li>
+            </ul>
+
+            <p><strong>Example: Expected Words Check</strong></p>
+            <pre><code>def eval_expected_words(assistant, question, expected_words):
+    answer = assistant.invoke({"question": question})
+    for word in expected_words:
+        assert word.lower() in answer.lower(), \
+            f"Expected '{word}' not found in response"
+    return answer</code></pre>
+
+            <h4>Model-Graded Evals</h4>
+            <p>Use an LLM to evaluate the output of another LLM. More robust but slower and more expensive.</p>
+
+            <p><strong>When to use:</strong></p>
+            <ul>
+                <li>Pre-release testing</li>
+                <li>Quality assessment of subjective outputs</li>
+                <li>Checking format compliance</li>
+                <li>Detecting hallucinations</li>
+            </ul>
+
+            <div class="info">
+                <strong>Key Insight:</strong> Model-graded evals solve a fundamental problem evaluating LLM output can be tricky because a "good response" is subjective. Custom rules become fragile as the application grows, but another LLM can assess quality contextually.
+            </div>
+
+            <p><strong>Example: Format Validation</strong></p>
+            <pre><code>eval_system_prompt = """You are an assistant that evaluates 
+whether an assistant is producing valid quizzes.
+The output should be in format: Question N:#### &lt;question&gt;?"""
+
+eval_user_message = """Evaluate this response:
+[Response]: {agent_response}
+
+Output Y if it looks like a quiz, N if not."""</code></pre>
+
+            <h3>Detecting Hallucinations</h3>
+            <p>Hallucinations occur when LLMs provide answers that are false, irrelevant, or contradictory. They're a side effect of LLMs being "next token predictors" the model produces statistically likely output, but has no built-in way to ensure correctness.</p>
+
+            <p><strong>Types of hallucinations:</strong></p>
+            <ul>
+                <li><strong>Inaccurate:</strong> "The capital of Brazil is São Paulo" (it's Brasília)</li>
+                <li><strong>Irrelevant:</strong> Asked about Brazil, responds about Canada</li>
+                <li><strong>Contradictory:</strong> Lists "New York" twice in a ranking</li>
+            </ul>
+
+            <p><strong>Detection Strategy:</strong></p>
+            <pre><code>def create_hallucination_eval(context, response):
+    eval_prompt = """You evaluate if a quiz contains 
+ONLY facts from the question bank.
+
+[Question Bank]: {context}
+[Quiz]: {response}
+
+Quizzes with facts outside the question bank are BAD 
+and harmful. Output Y if valid, N if contains 
+hallucinations."""
+    
+    return eval_chain.invoke({
+        "context": context, 
+        "agent_response": response
+    })</code></pre>
+
+            <div class="caution">
+                <strong>Remember:</strong> Hallucination detection doesn't guarantee the model never hallucinates, but it's a crucial tool for catching when prompts lack proper guardrails.
+            </div>
+
+            <h3>Building a Comprehensive Testing Framework</h3>
+
+            <h4>Progressive Confidence Building</h4>
+            <p>Structure your testing pipeline to progressively increase confidence as you get closer to release:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Stage</th>
+                        <th>Eval Type</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Per Commit</td>
+                        <td>Rules-based</td>
+                        <td>Fast feedback, catch obvious errors</td>
+                    </tr>
+                    <tr>
+                        <td>Pre-Release</td>
+                        <td>Model-graded</td>
+                        <td>Quality assessment, format validation</td>
+                    </tr>
+                    <tr>
+                        <td>Full Evaluation</td>
+                        <td>Dataset + Human Review</td>
+                        <td>Comprehensive analysis, edge cases</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Dataset-Based Testing</h4>
+            <p>As your application grows, create datasets of known inputs and expected behaviors:</p>
+
+            <pre><code>test_dataset = [
+    {
+        "input": "Quiz me about science",
+        "expected_subjects": ["physics", "telescope", "curie"]
+    },
+    {
+        "input": "Quiz about geography", 
+        "expected_subjects": ["paris", "france", "louvre"]
+    },
+    {
+        "input": "Quiz about Italy",  # Edge case - not in our data
+        "should_decline": True
+    }
+]</code></pre>
+
+            <h4>Human-in-the-Loop Evaluation</h4>
+            <p>Generate detailed reports for human review, including both decisions and explanations:</p>
+
+            <pre><code>eval_prompt = """Evaluate this quiz against the question bank.
+
+Additional rules:
+- Output explanation of whether quiz only references 
+  information in context
+- Include clear "Yes" or "No" as first paragraph
+- Reference specific facts from quiz bank
+
+Format:
+************
+Decision: &lt;Y/N&gt;
+************
+Explanation: &lt;reasoning&gt;
+************"""</code></pre>
+
+            <div class="note">
+                <strong>Best Practice:</strong> AI/ML engineers emphasize that being willing to "dig into the data" is critical for working effectively. This is sometimes called error analysis or performance auditing.
+            </div>
+
+            <h3>CI/CD Integration</h3>
+            <p>Automate your evals to run in a continuous integration pipeline. This ensures quality checks happen automatically across your team.</p>
+
+            <h4>GitHub Actions Workflow Example</h4>
+            <pre><code>name: LLM Evals
+
+on:
+  workflow_dispatch:
+    inputs:
+      eval-mode:
+        type: choice
+        options: [commit, full, report]
+
+jobs:
+  run-evals:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      
+      - run: pip install -r requirements.txt
+      
+      - name: Run evaluations
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: pytest -v test_assistant.py
+      
+      - uses: actions/upload-artifact@v4
+        with:
+          name: eval-results
+          path: results.xml</code></pre>
+
+            <h4>Storing Artifacts for Review</h4>
+            <p>Generate HTML reports that can be shared with your team:</p>
+
+            <pre><code>def report_evals():
+    results = evaluate_dataset(test_dataset, assistant, evaluator)
+    df = pd.DataFrame(results)
+    df_html = df.to_html().replace("\\n", "&lt;br&gt;")
+    
+    with open("eval_results.html", "w") as f:
+        f.write(df_html)</code></pre>
+
+            <h3>Key Considerations for LLM Testing Frameworks</h3>
+
+            <div class="tip">
+                <strong>Design Principles:</strong>
+            </div>
+
+            <ol>
+                <li><strong>Start Simple, Scale Up:</strong> Begin with rules-based evals, add model-graded evals as needed</li>
+                <li><strong>Test the Prompt, Not Just the Model:</strong> Many issues come from prompt design, it is always better to be specific about what we desire as output</li>
+                <li><strong>Include Guardrails:</strong> Add explicit instructions for edge cases (e.g., "If you don't have information, say 'I'm sorry'")</li>
+                <li><strong>Embrace Non-Determinism:</strong> Design tests that account for variable outputs, check for presence of concepts, not exact strings</li>
+                <li><strong>Human Review is Essential:</strong> Model-graded evals augment but don't replace human judgment</li>
+                <li><strong>Store Everything:</strong> Keep evaluation artifacts for debugging and trend analysis</li>
+                <li><strong>Progressive Testing:</strong> Match test comprehensiveness to deployment risk</li>
+            </ol>
+
+            <h3>Common Pitfalls to Avoid</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Pitfall</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Over-relying on exact string matching</td>
+                        <td>Use semantic checks or model-graded evals</td>
+                    </tr>
+                    <tr>
+                        <td>Asking LLM to be "helpful" without bounds</td>
+                        <td>Causes hallucinations, Constrain to known data</td>
+                    </tr>
+                    <tr>
+                        <td>Running expensive evals on every commit</td>
+                        <td>Reserve model-graded evals for pre-release</td>
+                    </tr>
+                    <tr>
+                        <td>Ignoring edge cases</td>
+                        <td>Test with inputs outside expected categories</td>
+                    </tr>
+                    <tr>
+                        <td>No human review loop</td>
+                        <td>Generate reports for manual inspection</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Conclusion</h3>
+            <p>Building automated testing frameworks for LLM applications requires a shift in mindset from traditional software testing. The key insights are:</p>
+
+            <ul>
+                <li>✅ LLMs produce probabilistic outputs, design evals accordingly</li>
+                <li>✅ Use rules-based evals for fast feedback, model-graded for quality</li>
+                <li>✅ Hallucination detection is critical but not foolproof</li>
+                <li>✅ Automate with CI/CD but maintain human oversight</li>
+                <li>✅ Store artifacts and iterate on both prompts and evals</li>
+            </ul>
+
+            <p>By combining these approaches in a progressive testing pipeline, you can build LLM applications with confidence—moving quickly while maintaining quality and catching issues before they reach users.</p>
+
+            <div class="info">
+                <strong>Resources:</strong> The code examples in this post are available in my <a href="https://github.com/Thilaknath/evals-learning">evals-learning repository</a> on GitHub, with GitHub Actions workflows ready to use.
+            </div>
+        </article>
+
+        <footer>
+            <p><a href="../blog.html">← Back to all posts</a></p>
+            <p>© 2026 Thilaknath Ashok Kumar</p>
+        </footer>
+    </main>
+</body>
+</html>
