@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A practical guide to agentic AI architecture patterns: understanding the autonomy loop, layered stack, and six design patterns from ReAct to multi-agent systems.">
+    <title>Agentic AI Architecture Patterns: From Autonomy Loops to Production-Ready Systems (Part 1)</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <main>
+        <header>
+            <h1><a href="../index.html" style="text-decoration: none; color: inherit;">Thilaknath Ashok Kumar</a></h1>
+        </header>
+
+        <nav>
+            <a href="../index.html">Home</a> ·
+            <a href="../about.html">About</a> ·
+            <a href="../blog.html">Blog</a> ·
+            <a href="https://www.youtube.com/@chatGPTDevOps">YouTube</a> ·
+            <a href="https://github.com/Thilaknath">GitHub</a> ·
+            <a href="https://www.linkedin.com/in/thilaknath/">LinkedIn</a>
+        </nav>
+
+        <article>
+            <header>
+                <h2>Agentic AI Architecture Patterns: From Autonomy Loops to Production-Ready Systems (Part 1)</h2>
+                <p class="meta">Published: March 8, 2026</p>
+                <div class="tags">
+                    <a href="#">ai</a>
+                    <a href="#">agentic-ai</a>
+                    <a href="#">architecture</a>
+                    <a href="#">llm</a>
+                    <a href="#">design-patterns</a>
+                </div>
+            </header>
+
+            <p>
+                Agentic AI is having a moment—not just as a buzzword, but as a set of design patterns that make autonomous, goal-seeking systems practical. If you've ever nursed a one-off "tool-using LLM" demo into a real product, you know the leap from prompt to production isn't just about a bigger model; it's an architectural journey.
+            </p>
+            <p>
+                This two-part series is a practical guide to that journey. In Part 1, we'll define the core autonomy loop, map the layered stack, and walk through a pattern catalog with code examples. <a href="agentic-ai-architecture-part2.html">Part 2</a> will cover frameworks, tooling, and the non-functional patterns that keep agent systems running in production.
+            </p>
+
+            <hr style="margin: 2rem 0; border: none; border-top: 1px solid #e0e0e0;">
+
+            <h3>Section 1 — Why Agentic AI Patterns Matter</h3>
+
+            <p>
+                In one sentence: <strong>agentic AI systems are autonomous, goal-seeking loops that perceive, reason/plan, act via tools, and learn from feedback.</strong>
+            </p>
+            <p>
+                That loop is the beating heart of every agent system you'll build:
+            </p>
+            <ul>
+                <li><strong>Perception:</strong> understand goals, inputs, and environment (text, APIs, documents).</li>
+                <li><strong>Reasoning and planning:</strong> decompose goals, pick strategies, decide tool calls.</li>
+                <li><strong>Action and tools:</strong> execute actions through APIs, file systems, code runners, etc.</li>
+                <li><strong>Feedback and learning:</strong> assess outcomes, critique, adapt, and update memory.</li>
+            </ul>
+
+            <p>
+                Why patterns? Because they tame complexity and increase reliability. Choosing the right architecture up front matches the system to the task: single vs multi-agent, memory scope, orchestration style, and operational guardrails. Without them, most demos fail in predictable ways:
+            </p>
+            <ul>
+                <li>Tool misuse and "API hallucination"</li>
+                <li>Prompt drift and inconsistent behaviors</li>
+                <li>Lack of state, traceability, and replay</li>
+                <li>Brittle long-context interactions</li>
+                <li>Unsafe or unintended side effects</li>
+            </ul>
+
+            <figure style="margin: 2rem 0; background: #f8f9fa; padding: 1.5rem; border-radius: 8px; font-family: monospace; font-size: 0.9rem;">
+<pre style="margin: 0; white-space: pre-wrap;">[User/Goal]
+    ↓
+[Perception] → (normalize input, schemas)
+    ↓
+[Reasoning/Planning] ↔ [Memory (short-term/long-term)]
+    ↓
+[Action/Tools] (wrapped by Guardrails/Sandbox)
+    ↓
+[Feedback/Learning] → updates Memory
+    ↺ (loop back to Reasoning/Planning)</pre>
+                <figcaption style="color: #666; font-size: 0.85rem; margin-top: 1rem; font-style: italic; font-family: sans-serif;">The Autonomy Loop: the beating heart of every agent system</figcaption>
+            </figure>
+
+            <blockquote style="border-left: 4px solid #4285f4; padding-left: 1rem; margin: 1.5rem 0; font-style: italic;">
+                Key takeaway: robust agents aren't "just LLMs with tools." They're systems with state, structure, and safeguards.
+            </blockquote>
+
+            <hr style="margin: 2rem 0; border: none; border-top: 1px solid #e0e0e0;">
+
+            <h3>Section 2 — The Core Agentic Stack (Layered Architecture)</h3>
+
+            <p>
+                Think of agent systems as a layered stack glued together by state and traces.
+            </p>
+
+            <h4>Perception Layer</h4>
+            <ul>
+                <li>Input adapters for text, APIs, documents, search.</li>
+                <li>Normalization and schema validation for structured inputs (Pydantic/JSON Schema).</li>
+            </ul>
+
+            <h4>Memory Layer</h4>
+            <ul>
+                <li><strong>Short-term memory:</strong> conversation/working context.</li>
+                <li><strong>Long-term semantic memory:</strong> vector stores (Pinecone, Chroma, FAISS).</li>
+                <li><strong>Episodic memory:</strong> past tool runs, decisions, outcomes with timestamps.</li>
+            </ul>
+
+            <h4>Reasoning and Planning Layer</h4>
+            <ul>
+                <li>CoT/ReAct prompting, or structured planners for task decomposition.</li>
+                <li>Planner–executor separation for multi-step goals and traceability.</li>
+            </ul>
+
+            <h4>Tools and Action Layer</h4>
+            <ul>
+                <li>Function calling, external APIs, code/file operations, sandboxed execution.</li>
+                <li>Reliability features: retries, timeouts, idempotency, rate limiting.</li>
+            </ul>
+
+            <h4>Feedback and Learning Layer</h4>
+            <ul>
+                <li>Self-critique, outcome scoring, preference or trace-based updates, memory consolidation.</li>
+            </ul>
+
+            <h4>Orchestration and State Layer</h4>
+            <ul>
+                <li>Workflow graphs/state machines (e.g., LangGraph-like), event buses, artifact stores for replay and observability.</li>
+            </ul>
+
+            <figure style="margin: 2rem 0; background: #f8f9fa; padding: 1.5rem; border-radius: 8px; font-family: monospace; font-size: 0.9rem;">
+<pre style="margin: 0; white-space: pre-wrap;">[Clients / Goals]
+         ↓
+     Perception
+         ↓
+  Reasoning / Planning
+         ↕
+   Memory (short-term, long-term, episodic)
+         ↓
+   Tools / Action (wrapped by Guardrails/Sandbox)
+         ↓
+  Feedback / Learning
+         ↕
+Artifact / State Store (prompts, traces, tool I/O)</pre>
+                <figcaption style="color: #666; font-size: 0.85rem; margin-top: 1rem; font-style: italic; font-family: sans-serif;">Layered Architecture: modular design for "slotting in" capabilities</figcaption>
+            </figure>
+
+            <p>
+                This stack makes it easy to "slot in" capabilities (e.g., add episodic memory or a new tool) without breaking the whole loop.
+            </p>
+
+            <hr style="margin: 2rem 0; border: none; border-top: 1px solid #e0e0e0;">
+
+            <h3>Section 3 — Pattern Catalog: When and How to Structure Agents</h3>
+
+            <p>
+                Below are practical patterns you can adopt incrementally. Each includes when to use it, key ideas, tradeoffs, and a code or pseudo-code sketch.
+            </p>
+
+            <h4>Pattern 1: Single-Agent ReAct Loop</h4>
+            <ul>
+                <li><strong>When to use:</strong> straightforward tasks with a limited toolset and minimal orchestration (e.g., research + compute, simple content generation with lookups).</li>
+                <li><strong>Key ideas:</strong> incremental reasoning that interleaves tool calls with thought; conversation buffer memory for short-term context.</li>
+                <li><strong>Pros:</strong> simple, fast to stand up.</li>
+                <li><strong>Cons:</strong> can struggle with deeper planning, cross-episode goals, and long-running workflows.</li>
+            </ul>
+
+            <p><strong>Example (Python, LangChain-style):</strong></p>
+            <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; overflow-x: auto; font-size: 0.85rem;"><code># pip install langchain langchain-openai tiktoken
+from langchain_openai import ChatOpenAI
+from langchain.agents import initialize_agent, AgentType, Tool
+from langchain.memory import ConversationBufferMemory
+
+# Define two simple tools
+def search_tool(query: str) -> str:
+    # Replace with your search API
+    return f"Search results for: {query}"
+
+def calculator_tool(expression: str) -> str:
+    try:
+        return str(eval(expression))
+    except Exception as e:
+        return f"Error: {e}"
+
+tools = [
+    Tool(name="search", func=search_tool, description="Web search for facts"),
+    Tool(name="calculator", func=calculator_tool, description="Evaluate math expressions")
+]
+
+llm = ChatOpenAI(model="gpt-4o", temperature=0)
+memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
+
+agent = initialize_agent(
+    tools=tools,
+    llm=llm,
+    agent=AgentType.OPENAI_FUNCTIONS,  # Uses tool/function calling
+    memory=memory,
+    verbose=True
+)
+
+result = agent.run("Research the GDP of Japan in 2023 and compute 2% of it.")
+print(result)</code></pre>
+
+            <p style="font-style: italic; color: #666;">Tip: always wrap tools with validation and timeouts (covered in Part 2).</p>
+
+            <hr style="margin: 2rem 0; border: none; border-top: 1px solid #e0e0e0;">
+
+            <h4>Pattern 2: Planner–Executor</h4>
+            <ul>
+                <li><strong>When to use:</strong> multi-step goals that need decomposition, progress tracking, and transparent state (e.g., "analyze sales by region, produce a slide deck, and email it").</li>
+                <li><strong>Key ideas:</strong> separate a "planner" that proposes tasks from an "executor" that runs tools per task; use a feedback loop to evaluate and revise.</li>
+                <li><strong>Pros:</strong> structure, traceability, easier to test/monitor.</li>
+                <li><strong>Cons:</strong> more moving parts; requires careful state management.</li>
+            </ul>
+
+            <p><strong>Graph-style orchestration (pseudo-code, inspired by LangGraph):</strong></p>
+            <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; overflow-x: auto; font-size: 0.85rem;"><code># pip install langgraph langchain-openai
+from typing import TypedDict, List
+from langgraph.graph import StateGraph, END
+from langchain_openai import ChatOpenAI
+
+class State(TypedDict):
+    goal: str
+    context: str
+    tasks: List[str]
+    results: List[str]
+    idx: int
+    done: bool
+
+llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
+
+def plan(state: State) -> State:
+    prompt = f"Decompose the goal into 3-5 concrete, tool-executable tasks:\nGoal: {state['goal']}\nContext: {state['context']}\n"
+    tasks_text = llm.invoke(prompt).content
+    tasks = [t.strip("- ").strip() for t in tasks_text.split("\n") if t.strip()]
+    return {**state, "tasks": tasks, "idx": 0, "results": [], "done": False}
+
+def act(state: State) -> State:
+    task = state["tasks"][state["idx"]]
+    # Route to tools based on simple heuristics; replace with a robust router
+    if "search" in task.lower():
+        result = f"[search] {task} => ...results..."
+    elif any(k in task.lower() for k in ["compute", "calculate", "sum"]):
+        result = f"[calculator] {task} => ...value..."
+    else:
+        result = f"[llm] {llm.invoke(task).content}"
+    results = state["results"] + [f"{task} => {result}"]
+    return {**state, "results": results}
+
+def evaluate(state: State) -> State:
+    # Simple checkpoint: move to next task or finish
+    next_idx = state["idx"] + 1
+    done = next_idx >= len(state["tasks"])
+    return {**state, "idx": next_idx, "done": done}
+
+# Build the graph
+graph = StateGraph(State)
+graph.add_node("plan", plan)
+graph.add_node("act", act)
+graph.add_node("evaluate", evaluate)
+
+graph.set_entry_point("plan")
+graph.add_edge("plan", "act")
+graph.add_edge("act", "evaluate")
+graph.add_conditional_edges("evaluate", lambda s: END if s["done"] else "act")
+
+app = graph.compile()
+
+initial = {"goal": "Research 3 competitors and summarize pricing, then compute average price.",
+           "context": "SaaS analytics tools",
+           "tasks": [], "results": [], "idx": 0, "done": False}
+final_state = app.invoke(initial)
+print("\n".join(final_state["results"]))</code></pre>
+
+            <p><strong>Enhancements:</strong></p>
+            <ul>
+                <li>Add deterministic checkpoints between planner and executor.</li>
+                <li>Record all transitions into an artifact store for replay and audits.</li>
+            </ul>
+
+            <hr style="margin: 2rem 0; border: none; border-top: 1px solid #e0e0e0;">
+
+            <h4>Pattern 3: Hierarchical Multi-Agent (Supervisor–Workers)</h4>
+            <ul>
+                <li><strong>When to use:</strong> cross-domain tasks with parallelizable subtasks (e.g., research + coding + QA), or when role specialization helps (researcher, coder, analyst).</li>
+                <li><strong>Key ideas:</strong> a supervisor agent assigns tasks to specialized worker agents that share memory (a "blackboard") and then reviews and merges results.</li>
+                <li><strong>Pros:</strong> scalability, clear separation of concerns, parallelism.</li>
+                <li><strong>Cons:</strong> coordination overhead, conflict resolution, more prompts to maintain.</li>
+            </ul>
+
+            <p><strong>Example (conceptual AutoGen-style):</strong></p>
+            <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; overflow-x: auto; font-size: 0.85rem;"><code># pip install pyautogen
+from autogen import AssistantAgent, UserProxyAgent
+
+# Supervisor (planner/reviewer)
+supervisor = AssistantAgent(
+    name="supervisor",
+    system_message="You plan tasks, assign to workers, and review results for quality and coherence."
+)
+
+# Role-specialized workers
+researcher = AssistantAgent(
+    name="researcher",
+    system_message="You are a web researcher. Provide sources and short syntheses."
+)
+coder = AssistantAgent(
+    name="coder",
+    system_message="You write concise, tested Python functions and unit tests."
+)
+
+# Shared "blackboard" for artifacts (replace with a persistent store)
+blackboard = {}
+
+goal = "Find top 3 open-source charting libraries for Python and write a function to plot time series."
+
+plan = supervisor.generate_reply(messages=[{"role":"user","content":f"Plan tasks for: {goal}"}])
+tasks = ["Research libraries and pros/cons", "Implement plot_time_series(data) using the chosen lib", "Create a simple test"]
+
+# Assign tasks
+res1 = researcher.generate_reply(messages=[{"role":"user","content":tasks[0]}])
+blackboard["research"] = res1.content
+
+res2 = coder.generate_reply(messages=[{"role":"user","content":f"{tasks[1]}\nUse insights:\n{blackboard['research']}"}])
+blackboard["code"] = res2.content
+
+# Supervisor merges and reviews
+review = supervisor.generate_reply(messages=[{"role":"user","content":f"Review and consolidate:\n{blackboard}"}])
+print(review.content)</code></pre>
+
+            <p>
+                In production, replace the in-memory "blackboard" with an artifact store (e.g., object storage + metadata DB), add QA gates, and enforce policy validators around tool calls.
+            </p>
+
+            <hr style="margin: 2rem 0; border: none; border-top: 1px solid #e0e0e0;">
+
+            <h4>Pattern 4: Blackboard / Event-Driven Multi-Agent</h4>
+            <ul>
+                <li><strong>When to use:</strong> loosely coupled teams of agents, streaming data, or long-running workflows (e.g., monitoring, enrichment pipelines, knowledge graph building).</li>
+                <li><strong>Key ideas:</strong> agents publish/subscribe events over a bus/queue; artifacts live in a shared store; handlers are idempotent and versioned.</li>
+                <li><strong>Pros:</strong> resilient, horizontally scalable, agents can be independently deployed.</li>
+                <li><strong>Cons:</strong> requires event schema governance, state versioning, and robust ops.</li>
+            </ul>
+
+            <figure style="margin: 2rem 0; background: #f8f9fa; padding: 1.5rem; border-radius: 8px; font-family: monospace; font-size: 0.9rem;">
+<pre style="margin: 0; white-space: pre-wrap;">Agents (A, B, C) ↔ Event Bus/Queue ↔ Artifact Store (docs, vectors, traces)
+              ↑ Policies/Validators intercept events before tool execution</pre>
+            </figure>
+
+            <p><strong>Example (simplified event consumer with idempotency):</strong></p>
+            <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; overflow-x: auto; font-size: 0.85rem;"><code># Pseudo-code: event-driven agent using a queue + artifact store
+import json, time
+from typing import Dict
+from pydantic import BaseModel, Field, ValidationError
+
+class DocEvent(BaseModel):
+    id: str
+    type: str  # e.g., "new_document"
+    uri: str
+    schema_version: int
+    idempotency_key: str = Field(...)
+
+processed_keys = set()  # replace with persistent dedup store
+
+def fetch_artifact(uri: str) -> str:
+    # read from S3/GCS/File system
+    ...
+
+def store_artifact(uri: str, data: Dict):
+    # write to storage
+    ...
+
+def handler(event_json: str):
+    try:
+        evt = DocEvent.model_validate_json(event_json)
+    except ValidationError as e:
+        # send to DLQ or alert
+        return
+
+    if evt.idempotency_key in processed_keys:
+        return  # idempotent
+    processed_keys.add(evt.idempotency_key)
+
+    raw = fetch_artifact(evt.uri)
+    # Process: chunk, embed, store vectors, etc.
+    # Policies/validators can intercept here
+    enriched = {"uri": evt.uri, "summary": "...", "embeddings": "..."}
+    store_artifact(evt.uri + ".meta.json", enriched)
+    # Publish next event, e.g., "document_enriched"</code></pre>
+
+            <p>
+                Combine with a vector store and search agent subscribers for a robust, streaming RAG system.
+            </p>
+
+            <hr style="margin: 2rem 0; border: none; border-top: 1px solid #e0e0e0;">
+
+            <h4>Pattern 5: Memory-Augmented Agent (RAG + Episodic Memory)</h4>
+            <ul>
+                <li><strong>When to use:</strong> knowledge-intensive tasks requiring grounded outputs; systems that benefit from learning across episodes (e.g., "what worked last time?").</li>
+                <li><strong>Key ideas:</strong> retrieve context via vector DB (RAG), store episodic experiences (queries, tools used, outcomes), and periodically consolidate into long-term memory.</li>
+                <li><strong>Pros:</strong> reduces hallucinations, improves continuity and personalization.</li>
+                <li><strong>Cons:</strong> added latency, more storage and data governance complexity.</li>
+            </ul>
+
+            <p><strong>Example (LangChain-like RAG + episodic logging):</strong></p>
+            <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; overflow-x: auto; font-size: 0.85rem;"><code># pip install langchain langchain-openai chromadb
+from langchain_openai import ChatOpenAI, OpenAIEmbeddings
+from langchain.vectorstores import Chroma
+from langchain.docstore.document import Document
+
+# Build or load vector store
+embeddings = OpenAIEmbeddings()
+vectorstore = Chroma(collection_name="kb", embedding_function=embeddings)
+retriever = vectorstore.as_retriever(search_kwargs={"k": 4})
+
+llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
+
+def answer(query: str):
+    # Retrieve context
+    docs = retriever.get_relevant_documents(query)
+    context = "\n\n".join([d.page_content for d in docs])
+    prompt = f"Use the provided context to answer.\n\nContext:\n{context}\n\nQuestion: {query}\nAnswer concisely with citations."
+    response = llm.invoke(prompt).content
+
+    # Episodic memory: store query, context refs, response, tool calls
+    episode = {
+        "query": query,
+        "doc_ids": [getattr(d, 'id', None) for d in docs],
+        "response": response,
+        "tools": ["retriever"]
+    }
+    # Persist to your artifact store or DB
+    log_episode(episode)
+
+    return response
+
+def log_episode(episode: dict):
+    # Append to a JSONL or DB table; later consolidate into long-term memory
+    print(f"[EPISODE] {episode}")</code></pre>
+
+            <p style="font-style: italic; color: #666;">
+                Pro tip: implement a consolidation job that summarizes high-value episodes and writes them back into your vector store as "learned facts" with provenance.
+            </p>
+
+            <hr style="margin: 2rem 0; border: none; border-top: 1px solid #e0e0e0;">
+
+            <h4>Pattern 6: Reflection and Self-Improvement Loop</h4>
+            <ul>
+                <li><strong>When to use:</strong> quality-critical tasks or iterative outputs (draft → critique → revise), optionally with human-in-the-loop.</li>
+                <li><strong>Key ideas:</strong> a critic step scores the draft against a rubric/policies and proposes concrete corrections; the writer revises; repeat until threshold or budget reached.</li>
+                <li><strong>Pros:</strong> higher quality, policy adherence.</li>
+                <li><strong>Cons:</strong> more tokens and latency, careful rubric design needed.</li>
+            </ul>
+
+            <p><strong>Pseudo-code:</strong></p>
+            <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; overflow-x: auto; font-size: 0.85rem;"><code>def write_with_reflection(goal: str, context: str, rubric: str, threshold: float = 0.8, max_iters: int = 3):
+    draft = llm.invoke(f"Write for goal:\n{goal}\nContext:\n{context}").content
+    for _ in range(max_iters):
+        critique = llm.invoke(
+            f"Critique the following against rubric.\nRubric:\n{rubric}\nDraft:\n{draft}\n"
+            "Return JSON with keys: score (0..1), issues, suggestions"
+        ).content
+        parsed = safe_parse_json(critique, default={"score": 0.0, "issues": [], "suggestions": []})
+        if parsed["score"] >= threshold:
+            return draft, parsed
+        draft = llm.invoke(
+            f"Revise the draft using these suggestions:\n{parsed['suggestions']}\nDraft:\n{draft}"
+        ).content
+    return draft, parsed</code></pre>
+
+            <p>
+                In production, use structured output (JSON schema) and log each iteration into your artifact layer.
+            </p>
+
+            <hr style="margin: 2rem 0; border: none; border-top: 1px solid #e0e0e0;">
+
+            <h3>What's Next</h3>
+
+            <p>
+                We've covered the foundational concepts—the autonomy loop, the layered stack, and six practical design patterns. But patterns alone won't keep your agents running reliably in production.
+            </p>
+
+            <p>
+                In <a href="agentic-ai-architecture-part2.html">Part 2</a>, we'll dive into:
+            </p>
+            <ul>
+                <li><strong>Frameworks and Tooling Map:</strong> Which tools to use for each pattern (LangChain, LangGraph, AutoGen, and more)</li>
+                <li><strong>Production Architecture:</strong> Zero-trust execution, observability, reliability patterns, safety governance, and cost optimization</li>
+                <li><strong>Practical Next Steps:</strong> A roadmap for evolving from demo to durable production system</li>
+            </ul>
+
+            <blockquote style="border-left: 4px solid #4285f4; padding-left: 1rem; margin: 1.5rem 0; font-style: italic;">
+                The hard parts start after the demo. Stay tuned for the operational patterns that separate proof-of-concept agents from production-ready systems.
+            </blockquote>
+
+            <hr style="margin: 2rem 0; border: none; border-top: 1px solid #e0e0e0;">
+
+            <p style="font-style: italic; margin-top: 2rem;">
+                Building agentic systems? I'd love to hear about your architecture choices and production challenges. Connect with me on <a href="https://www.linkedin.com/in/thilaknath/">LinkedIn</a> to discuss.
+            </p>
+        </article>
+
+        <footer>
+            <p><a href="../blog.html">&larr; Back to all posts</a></p>
+            <p>&copy; 2026 Thilaknath Ashok Kumar</p>
+        </footer>
+    </main>
+</body>
+</html>
