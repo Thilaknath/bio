@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Key takeaways from Jensen Huang's All-In Podcast interview at GTC 2026: AI factories, disaggregated inference, agentic explosion, physical AI, and the future of work.">
+    <title>Jensen Huang on the Future of AI: Key Takeaways from the All-In Podcast at GTC 2026</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <main>
+        <header>
+            <h1><a href="../index.html" style="text-decoration: none; color: inherit;">Thilaknath Ashok Kumar</a></h1>
+        </header>
+
+        <nav>
+            <a href="../index.html">Home</a> ·
+            <a href="../about.html">About</a> ·
+            <a href="../blog.html">Blog</a> ·
+            <a href="https://www.youtube.com/@chatGPTDevOps">YouTube</a> ·
+            <a href="https://github.com/Thilaknath">GitHub</a> ·
+            <a href="https://www.linkedin.com/in/thilaknath/">LinkedIn</a>
+        </nav>
+
+        <article>
+            <header>
+                <h2>Jensen Huang on the Future of AI: Key Takeaways from the All-In Podcast at GTC 2026</h2>
+                <p class="meta">Published: March 22, 2026</p>
+                <div class="tags">
+                    <a href="#">ai</a>
+                    <a href="#">nvidia</a>
+                    <a href="#">gtc-2026</a>
+                    <a href="#">agentic-ai</a>
+                    <a href="#">robotics</a>
+                </div>
+            </header>
+
+            <p>
+                GTC 2026 felt different this year. The energy wasn't just about faster chips or bigger models, it was about something more fundamental: the industrialization of intelligence itself.
+            </p>
+            <p>
+                When Jensen Huang sat down with the All-In Podcast hosts during GTC week, he delivered one of the most comprehensive visions I've heard for where AI is actually heading. Not the hype-fueled speculation we see in tech Twitter threads, but a practical, engineering-grounded roadmap for the next decade.
+            </p>
+            <p>
+                Having spent years working in enterprise compliance and watching how technology adoption actually happens in regulated industries, I found Jensen's framing particularly compelling. Here are the key takeaways that matter for anyone building, deploying, or governing AI systems.
+            </p>
+
+            <hr style="margin: 2rem 0; border: none; border-top: 1px solid #e0e0e0;">
+
+            <h3>The AI Factory Era: From GPU Company to Token Manufacturer</h3>
+
+            <p>
+                Nvidia has fundamentally evolved from a GPU company into an AI factory company. This isn't just marketing it is an architectural shift in how we think about AI infrastructure.
+            </p>
+
+            <blockquote style="border-left: 4px solid #4285f4; padding-left: 1rem; margin: 1.5rem 0; font-style: italic;">
+                "The computer is actually a manufacturer, a token manufacturing system."
+            </blockquote>
+
+            <p>
+                Jensen introduced "Dynamo," the operating system for these AI factories, which relies heavily on what he calls "disaggregated inference." Because inference processing is incredibly complex, Nvidia is disaggregating the pipeline so different workloads run on the most optimal hardware spreading computing across GPUs, CPUs, networking processors, and the newly acquired Groq processors.
+            </p>
+            <p>
+                To critics who argue these AI factories are too expensive, Jensen's response was direct: a $50 billion factory will actually generate the lowest-cost AI tokens. Because these next-gen data centers offer 10 times the throughput of cheaper alternatives, the marginal cost of tokens plummets, making the upfront capital expenditure highly efficient.
+            </p>
+            <p>
+                For enterprise architects, this has real implications. The economics of "build vs. buy" for AI inference are shifting dramatically. The question isn't whether to use AI it is how to position your organization in this new manufacturing economy.
+            </p>
+
+            <hr style="margin: 2rem 0; border: none; border-top: 1px solid #e0e0e0;">
+
+            <h3>The Three Computers of AI</h3>
+
+            <p>
+                Jensen broke down the future of computing into three distinct systems, and this framework is genuinely useful for understanding where different AI investments should go:
+            </p>
+
+            <figure style="margin: 2rem 0;">
+                <img src="../static/img/three-computers-ai.svg" alt="The Three Computers of AI: Training, Simulation, and Edge" style="max-width: 100%; height: auto;">
+                <figcaption style="color: #666; font-size: 0.9rem; margin-top: 0.5rem; font-style: italic;">Jensen's framework: Three distinct computing systems powering the AI revolution</figcaption>
+            </figure>
+
+            <ul>
+                <li><strong>The Training Computer:</strong> Focused on developing and creating the AI models themselves. This is the foundation layer—where intelligence is manufactured.</li>
+                <li><strong>The Omniverse (Simulation) Computer:</strong> A virtual gym obeying the laws of physics where AI and robots are evaluated and trained before hitting the real world. Think of it as the test environment for physical AI.</li>
+                <li><strong>The Edge (Robotics) Computer:</strong> The computer that powers end-point devices from self-driving cars and humanoid robots to telecommunications base stations and even children's toys.</li>
+            </ul>
+
+            <p>
+                What struck me about this framework is how it maps to the compliance challenges we'll face. Each "computer" has different risk profiles, different data residency requirements, and different regulatory considerations. The simulation layer, in particular, raises fascinating questions about model validation and audit trails.
+            </p>
+
+            <hr style="margin: 2rem 0; border: none; border-top: 1px solid #e0e0e0;">
+
+            <h3>The Agentic Explosion: 10,000x More Compute</h3>
+
+            <p>
+                We are shifting from generative AI to reasoning AI, and now, to agentic AI. This shift requires massive increases in compute power roughly 10,000 times more computation than early generative models.
+            </p>
+            <p>
+                Why such a dramatic increase? Agents require complex working memory, long-term memory, and tool use. They are not just generating responses they are maintaining state, planning multi-step actions, and learning from outcomes. This significantly stresses data center storage and networking infrastructure.
+            </p>
+
+            <blockquote style="border-left: 4px solid #4285f4; padding-left: 1rem; margin: 1.5rem 0; font-style: italic;">
+                If you pay an elite software engineer $500,000 a year, you should be deeply alarmed if they aren't consuming at least $250,000 worth of AI compute tokens.
+            </blockquote>
+
+            <p>
+                This thought experiment captures the economic shift perfectly. In the future, programming will no longer be about writing code it will be about writing ideas, architectures, and specifications. Developers will act as managers who evaluate outcomes generated by hundreds of AI agents.
+            </p>
+            <p>
+                For those of us in governance roles, this presents a new challenge: how do you audit decisions made by agentic systems? How do you ensure compliance when the "developer" is actually orchestrating a swarm of AI workers? These aren't hypothetical questions anymore they are becoming urgent.
+            </p>
+
+            <hr style="margin: 2rem 0; border: none; border-top: 1px solid #e0e0e0;">
+
+            <h3>Physical AI: The $50 Trillion Opportunity</h3>
+
+            <p>
+                Perhaps the most tangible shift Jensen described is "Physical AI" the tech industry's first real opportunity to address a largely untouched $50 trillion physical industry.
+            </p>
+            <p>
+                While America invented the robotics industry early on, the foundational "brain" technology was missing. Now, thanks to AI, we're seeing high-functioning existence proofs. Jensen predicts that within three to five years, we will have robots integrated all over the place.
+            </p>
+            <p>
+                This includes self-driving vehicles, where Nvidia provides an open-source "Android-type" platform allowing any car company to build autonomous vehicles. The parallel to Android's mobile strategy is intentional, Nvidia wants to be the platform layer that enables a diverse ecosystem of physical AI applications.
+            </p>
+            <p>
+                Ultimately, Jensen believes robots will act as the greatest unlock for global prosperity, serving as avatars for virtual presence and helping solve current labor shortages.
+            </p>
+
+            <hr style="margin: 2rem 0; border: none; border-top: 1px solid #e0e0e0;">
+
+            <h3>Addressing AI Doomerism: A National Security Perspective</h3>
+
+            <p>
+                Jensen pushed back strongly against AI "doomerism" and extreme catastrophic predictions, reminding listeners that AI is computer software, not a conscious or alien biological being.
+            </p>
+
+            <blockquote style="border-left: 4px solid #4285f4; padding-left: 1rem; margin: 1.5rem 0; font-style: italic;">
+                Letting fear dictate policy is a national security risk because it could slow American adoption of AI while adversaries push forward.
+            </blockquote>
+
+            <p>
+                He envisions a future where the "American tech stack" from chips to computing systems to platforms is used globally, capturing 90% of the world's infrastructure. He stressed the importance of diversifying supply chains across South Korea, Japan, and Europe, and re-industrializing the United States to reduce reliance on single regions, while maintaining deep strategic friendships with partners like Taiwan.
+            </p>
+            <p>
+                This geopolitical framing is important for enterprise leaders. The technology choices we make today have implications beyond performance and cost they connect to broader questions about supply chain resilience, data sovereignty, and strategic positioning.
+            </p>
+
+            <hr style="margin: 2rem 0; border: none; border-top: 1px solid #e0e0e0;">
+
+            <h3>Advice for the Future Workforce</h3>
+
+            <p>
+                Will AI take your job? According to Jensen, you won't lose your job to AI you will lose your job to somebody using AI.
+            </p>
+            <p>
+                He drew a compelling parallel to radiology: when deep learning vision models were first introduced, experts predicted the end of the human radiologist. A decade later, computer vision is integrated into 100% of radiology platforms, yet the demand for radiologists has skyrocketed. Why? Because the technology allowed hospitals to process more scans and treat more patients efficiently.
+            </p>
+            <p>
+                For young people entering the workforce, Jensen's advice is clear: study deep science, math, and language skills (since language is the ultimate programming language for AI), and above all, become an absolute expert in using AI tools.
+            </p>
+
+            <hr style="margin: 2rem 0; border: none; border-top: 1px solid #e0e0e0;">
+
+            <h3>Final Thoughts</h3>
+
+            <p>
+                What I appreciate about Jensen's vision is its groundedness. He's not promising artificial general intelligence next quarter or predicting human obsolescence. Instead, he's describing an industrial transformation one that requires massive capital investment, careful engineering, and thoughtful governance.
+            </p>
+            <p>
+                For those of us working in compliance and risk management, the message is clear: AI governance isn't about slowing down innovation. it is about building the guardrails that allow these systems to be deployed safely at scale. The "open cloud" infrastructure Jensen describes controllable, enterprise-safe agent systems is exactly what regulated industries need.
+            </p>
+            <p>
+                The next few years will be defining. The companies and professionals who understand both the capabilities and the constraints of these AI factories will be the ones who thrive in this new economy.
+            </p>
+
+            <hr style="margin: 2rem 0; border: none; border-top: 1px solid #e0e0e0;">
+
+            <p><strong>Inspiration:</strong></p>
+            <ul>
+                <li><a href="https://www.youtube.com/watch?v=l8vOfjGa3Q8">Jensen Huang on the All-In Podcast at GTC 2026</a> - All-In Podcast</li>
+            </ul>
+
+            <p style="font-style: italic; margin-top: 2rem;">
+                What's your take on Jensen's vision for AI factories and physical AI? Are you seeing these shifts in your organization? Connect with me on <a href="https://www.linkedin.com/in/thilaknath/">LinkedIn</a> to discuss.
+            </p>
+        </article>
+
+        <footer>
+            <p><a href="../blog.html">&larr; Back to all posts</a></p>
+            <p>&copy; 2026 Thilaknath Ashok Kumar</p>
+        </footer>
+    </main>
+</body>
+</html>

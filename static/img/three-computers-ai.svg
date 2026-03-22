@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 280" width="600" height="280">
+  <style>
+    .label { font-family: system-ui, -apple-system, sans-serif; font-size: 12px; font-weight: 600; }
+    .sublabel { font-family: system-ui, -apple-system, sans-serif; font-size: 10px; fill: #666; }
+    .title { font-family: system-ui, -apple-system, sans-serif; font-size: 16px; font-weight: 700; fill: #333; }
+    .icon { font-size: 28px; }
+  </style>
+
+  <!-- Background -->
+  <rect width="600" height="280" fill="#f8fafc"/>
+
+  <!-- Title -->
+  <text x="300" y="32" text-anchor="middle" class="title">The Three Computers of AI</text>
+
+  <!-- Training Computer (Left) - Blue -->
+  <g opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.3s" fill="freeze"/>
+    <rect x="40" y="70" width="140" height="140" rx="12" fill="#93c5fd" opacity="0.9"/>
+    <rect x="40" y="70" width="140" height="140" rx="12" fill="none" stroke="#1e40af" stroke-width="2"/>
+
+    <!-- Brain/Server Icon -->
+    <g transform="translate(110, 115)">
+      <rect x="-25" y="-15" width="50" height="35" rx="4" fill="#1e40af" opacity="0.8"/>
+      <rect x="-20" y="-10" width="8" height="4" rx="1" fill="#dbeafe"/>
+      <rect x="-8" y="-10" width="8" height="4" rx="1" fill="#dbeafe"/>
+      <rect x="4" y="-10" width="8" height="4" rx="1" fill="#dbeafe"/>
+      <rect x="-20" y="-2" width="8" height="4" rx="1" fill="#dbeafe"/>
+      <rect x="-8" y="-2" width="8" height="4" rx="1" fill="#dbeafe"/>
+      <rect x="4" y="-2" width="8" height="4" rx="1" fill="#dbeafe"/>
+      <rect x="-20" y="6" width="8" height="4" rx="1" fill="#dbeafe"/>
+      <rect x="-8" y="6" width="8" height="4" rx="1" fill="#dbeafe"/>
+      <rect x="4" y="6" width="8" height="4" rx="1" fill="#dbeafe"/>
+      <!-- Blinking light -->
+      <circle cx="15" cy="14" r="3" fill="#22c55e">
+        <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+
+    <text x="110" y="170" text-anchor="middle" class="label" fill="#1e40af">Training</text>
+    <text x="110" y="182" text-anchor="middle" class="label" fill="#1e40af">Computer</text>
+    <text x="110" y="198" text-anchor="middle" class="sublabel">Model Development</text>
+  </g>
+
+  <!-- Omniverse Computer (Center) - Purple -->
+  <g opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.8s" fill="freeze"/>
+    <rect x="230" y="70" width="140" height="140" rx="12" fill="#c4b5fd" opacity="0.9"/>
+    <rect x="230" y="70" width="140" height="140" rx="12" fill="none" stroke="#5b21b6" stroke-width="2"/>
+
+    <!-- Virtual World/Simulation Icon -->
+    <g transform="translate(300, 115)">
+      <!-- Outer ring -->
+      <ellipse cx="0" cy="0" rx="28" ry="12" fill="none" stroke="#5b21b6" stroke-width="2" opacity="0.6">
+        <animate attributeName="ry" values="12;14;12" dur="3s" repeatCount="indefinite"/>
+      </ellipse>
+      <!-- Middle sphere -->
+      <circle cx="0" cy="0" r="18" fill="#5b21b6" opacity="0.7"/>
+      <!-- Grid lines on sphere -->
+      <ellipse cx="0" cy="0" rx="18" ry="6" fill="none" stroke="#ddd6fe" stroke-width="1"/>
+      <line x1="0" y1="-18" x2="0" y2="18" stroke="#ddd6fe" stroke-width="1"/>
+      <!-- Orbiting dot -->
+      <circle cx="0" cy="0" r="3" fill="#f0abfc">
+        <animateMotion dur="4s" repeatCount="indefinite" path="M28,0 A28,12 0 1,1 -28,0 A28,12 0 1,1 28,0"/>
+      </circle>
+    </g>
+
+    <text x="300" y="170" text-anchor="middle" class="label" fill="#5b21b6">Omniverse</text>
+    <text x="300" y="182" text-anchor="middle" class="label" fill="#5b21b6">Computer</text>
+    <text x="300" y="198" text-anchor="middle" class="sublabel">Physics Simulation</text>
+  </g>
+
+  <!-- Edge Computer (Right) - Green -->
+  <g opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="1.3s" fill="freeze"/>
+    <rect x="420" y="70" width="140" height="140" rx="12" fill="#86efac" opacity="0.9"/>
+    <rect x="420" y="70" width="140" height="140" rx="12" fill="none" stroke="#166534" stroke-width="2"/>
+
+    <!-- Robot Icon -->
+    <g transform="translate(490, 115)">
+      <!-- Robot head -->
+      <rect x="-18" y="-20" width="36" height="28" rx="6" fill="#166534" opacity="0.8"/>
+      <!-- Eyes -->
+      <circle cx="-8" cy="-10" r="4" fill="#dcfce7">
+        <animate attributeName="r" values="4;3;4" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="8" cy="-10" r="4" fill="#dcfce7">
+        <animate attributeName="r" values="4;3;4" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <!-- Antenna -->
+      <line x1="0" y1="-20" x2="0" y2="-28" stroke="#166534" stroke-width="2"/>
+      <circle cx="0" cy="-30" r="3" fill="#22c55e">
+        <animate attributeName="fill" values="#22c55e;#86efac;#22c55e" dur="1s" repeatCount="indefinite"/>
+      </circle>
+      <!-- Body hint -->
+      <rect x="-12" y="10" width="24" height="8" rx="2" fill="#166534" opacity="0.6"/>
+    </g>
+
+    <text x="490" y="170" text-anchor="middle" class="label" fill="#166534">Edge</text>
+    <text x="490" y="182" text-anchor="middle" class="label" fill="#166534">Computer</text>
+    <text x="490" y="198" text-anchor="middle" class="sublabel">Real-World Deployment</text>
+  </g>
+
+  <!-- Arrow 1: Training to Omniverse -->
+  <g opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="1.6s" fill="freeze"/>
+    <defs>
+      <marker id="arrowhead1" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8"/>
+      </marker>
+    </defs>
+    <path d="M185 140 L225 140" stroke="#94a3b8" stroke-width="3" fill="none" marker-end="url(#arrowhead1)"/>
+    <!-- Animated dot along arrow -->
+    <circle r="4" fill="#60a5fa">
+      <animate attributeName="opacity" values="0;1;1;0" dur="2s" repeatCount="indefinite" begin="2s"/>
+      <animateMotion dur="2s" repeatCount="indefinite" begin="2s" path="M185,140 L220,140"/>
+    </circle>
+  </g>
+
+  <!-- Arrow 2: Omniverse to Edge -->
+  <g opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="1.9s" fill="freeze"/>
+    <defs>
+      <marker id="arrowhead2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8"/>
+      </marker>
+    </defs>
+    <path d="M375 140 L415 140" stroke="#94a3b8" stroke-width="3" fill="none" marker-end="url(#arrowhead2)"/>
+    <!-- Animated dot along arrow -->
+    <circle r="4" fill="#a78bfa">
+      <animate attributeName="opacity" values="0;1;1;0" dur="2s" repeatCount="indefinite" begin="2.5s"/>
+      <animateMotion dur="2s" repeatCount="indefinite" begin="2.5s" path="M375,140 L410,140"/>
+    </circle>
+  </g>
+
+  <!-- Bottom caption -->
+  <g opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="2.2s" fill="freeze"/>
+    <rect x="150" y="235" width="300" height="28" rx="14" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+    <text x="300" y="254" text-anchor="middle" class="sublabel" fill="#92400e" font-weight="600">Intelligence flows from training → simulation → deployment</text>
+  </g>
+</svg>
